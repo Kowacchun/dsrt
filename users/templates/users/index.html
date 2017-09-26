@@ -1,0 +1,10 @@
+<h1>User List</h1>
+{% if userList %}
+	<ul>
+	{% for user in userList %}
+		<li><a href="/users/{{ user.username }}/">{{ user.username }}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>No users are available.</p>
+{% endif %}
