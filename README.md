@@ -15,6 +15,7 @@ Contents:
 ## Introduction
 
 * A main challenge in radiation therapy is that there are healthy organs near the tumor.
+
 **Main Goal**:
 ``` 
 Target the tumor with as much radiation as possible while limiting the dose to healthy organs as risk (OARs).
