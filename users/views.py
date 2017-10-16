@@ -17,3 +17,9 @@ def index(request):
 def display(request, username):
 	user = get_object_or_404(User, username=username)
 	return render(request, 'users/display.html', {'user': user})
+
+def login(request):
+	return render(request, 'users/login.html')
+
+def signup(request):
+	return render(request, 'users/signup.html')
