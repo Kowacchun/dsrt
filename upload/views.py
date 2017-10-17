@@ -14,7 +14,7 @@ from dsrt.settings import BASE_DIR
 import zipfile
 import sys
 import dicom
-sys.path.append(BASE_DIR + '/users/app/')
+sys.path.append(BASE_DIR + '/upload/app/')
 import glob
 import dicomdb
 # Create your views here.

@@ -24,15 +24,15 @@ def parse(dicom_dataframe,user,patient,study,series):
 
     # parse the ROI sequence
     roi_sequence = dicom_dataframe.ROIContourSequence
-    roi_label_sequence = dicom_dataframe.RTROIObservationsSequence
+    roi_label_sequence = dicom_dataframe.StructureSetROISequence
 
     for roi in roi_sequence:
         try:
             rt_roi = RTROI.objects.get(fk_structureset_id=structure_set,ROINumber=roi.ReferencedROINumber)
         except ObjectDoesNotExist:
             rt_roi = RTROI()
-            rt_roi.ROIName = [x.ROIObservationLabel for x in roi_label_sequence if
-                              x.ReferencedROINumber == roi.ReferencedROINumber]
+            rt_roi.ROIName = [x.ROIName for x in roi_label_sequence if
+                              x.ROINumber == roi.ReferencedROINumber]
             rt_roi.ROIDisplayColor = roi.ROIDisplayColor
             rt_roi.ROINumber = roi.ReferencedROINumber
             # Make a function to calculate the volume of ROI, given its contour information
